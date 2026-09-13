@@ -29,10 +29,14 @@ npm run dev
 - `GET /` - Mensaje principal de la API.
 - `GET /api/health` - Verificación de estado.
 - `GET /api/info` - Información básica del proyecto.
+- `GET /api/productos` - Lista todos los productos de ejemplo.
+- `GET /api/productos/:id` - Busca un producto por id.
+- `GET /api/productos/analisis` - Devuelve el análisis completo del array.
 
 ## Ejemplos
 
 ```bash
 curl http://localhost:3000/api/health
 curl http://localhost:3000/api/info
+curl http://localhost:3000/api/productos/analisis?id=3
 ```
