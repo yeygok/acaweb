@@ -24,6 +24,16 @@ Durante desarrollo:
 npm run dev
 ```
 
+## Scripts de prueba
+
+- `npm run check:root` - Prueba la ruta principal.
+- `npm run check:health` - Prueba el estado del servidor.
+- `npm run check:info` - Prueba la ruta de información.
+- `npm run check:frutas` - Lista todas las frutas.
+- `npm run check:fruta` - Busca la fruta con id 3.
+- `npm run check:analisis` - Ejecuta el análisis completo del catálogo.
+- `npm run check:all` - Ejecuta todas las pruebas en secuencia.
+
 ## Endpoints
 
 - `GET /` - Mensaje principal de la API.
