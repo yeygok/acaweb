@@ -1,0 +1,31 @@
+{
+  "name": "acaweb",
+  "version": "1.0.0",
+  "description": "API Express para exponer un servicio básico de prueba",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --check src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeygok/acaweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "bugs": {
+    "url": "https://github.com/yeygok/acaweb/issues"
+  },
+  "homepage": "https://github.com/yeygok/acaweb#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "morgan": "^1.12.1"
+  }
+}
