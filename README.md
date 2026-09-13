@@ -1,6 +1,6 @@
 # acaweb
 
-Proyecto base para la tarea universitaria de exponer una API con Express y Node.js.
+Proyecto base para la tarea universitaria de exponer una API con Express y Node.js usando un catálogo de frutas.
 
 ## Requisitos
 
@@ -29,14 +29,14 @@ npm run dev
 - `GET /` - Mensaje principal de la API.
 - `GET /api/health` - Verificación de estado.
 - `GET /api/info` - Información básica del proyecto.
-- `GET /api/productos` - Lista todos los productos de ejemplo.
-- `GET /api/productos/:id` - Busca un producto por id.
-- `GET /api/productos/analisis` - Devuelve el análisis completo del array.
+- `GET /api/frutas` - Lista todas las frutas de ejemplo.
+- `GET /api/frutas/:id` - Busca una fruta por id.
+- `GET /api/frutas/analisis` - Devuelve el análisis completo del array, incluyendo frutas con precio mayor a 4000.
 
 ## Ejemplos
 
 ```bash
 curl http://localhost:3000/api/health
 curl http://localhost:3000/api/info
-curl http://localhost:3000/api/productos/analisis?id=3
+curl http://localhost:3000/api/frutas/analisis?id=3
 ```

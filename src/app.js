@@ -2,14 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const {
-  productos,
-  obtenerProductosMayoresA100Mil,
+  frutas,
+  obtenerFrutasConPrecioMayorA4000,
   calcularValorTotalInventario,
-  encontrarProductoConMasStock,
-  filtrarProductosDeTecnologia,
-  buscarProductoPorId,
-  agruparProductosPorCategoria,
-} = require('./productos');
+  encontrarFrutaConMasStock,
+  filtrarFrutasAcidas,
+  buscarFrutaPorId,
+  agruparFrutasPorCategoria,
+} = require('./frutas');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res.json({
     message: 'API de prueba activa',
-    endpoints: ['/api/health', '/api/info'],
+    endpoints: ['/api/health', '/api/info', '/api/frutas', '/api/frutas/analisis'],
   });
 });
 
@@ -41,37 +41,37 @@ app.get('/api/info', (req, res) => {
   });
 });
 
-app.get('/api/productos', (req, res) => {
+app.get('/api/frutas', (req, res) => {
   res.json({
-    total: productos.length,
-    productos,
+    total: frutas.length,
+    frutas,
   });
 });
 
-app.get('/api/productos/analisis', (req, res) => {
+app.get('/api/frutas/analisis', (req, res) => {
   const id = Number(req.query.id);
 
   res.json({
-    productosMayoresA100Mil: obtenerProductosMayoresA100Mil(productos),
-    valorTotalInventario: calcularValorTotalInventario(productos),
-    productoConMasStock: encontrarProductoConMasStock(productos),
-    productosTecnologia: filtrarProductosDeTecnologia(productos),
-    productoBuscadoPorId: Number.isNaN(id) ? null : buscarProductoPorId(productos, id),
-    agrupadosPorCategoria: agruparProductosPorCategoria(productos),
+    frutasConPrecioMayorA4000: obtenerFrutasConPrecioMayorA4000(frutas),
+    valorTotalInventario: calcularValorTotalInventario(frutas),
+    frutaConMasStock: encontrarFrutaConMasStock(frutas),
+    frutasAcidas: filtrarFrutasAcidas(frutas),
+    frutaBuscadaPorId: Number.isNaN(id) ? null : buscarFrutaPorId(frutas, id),
+    agrupadasPorCategoria: agruparFrutasPorCategoria(frutas),
   });
 });
 
-app.get('/api/productos/:id', (req, res) => {
+app.get('/api/frutas/:id', (req, res) => {
   const id = Number(req.params.id);
-  const producto = buscarProductoPorId(productos, id);
+  const fruta = buscarFrutaPorId(frutas, id);
 
-  if (!producto) {
+  if (!fruta) {
     return res.status(404).json({
-      error: 'Producto no encontrado',
+      error: 'Fruta no encontrada',
     });
   }
 
-  res.json(producto);
+  res.json(fruta);
 });
 
 app.use((req, res) => {
